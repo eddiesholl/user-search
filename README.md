@@ -48,3 +48,11 @@ The field on the specified entity to search in. For example:
 ### --term (-t)
 
 The term to search for in the field.
+
+# Tests
+
+You can invoke the unit tests for the app via:
+```
+npm test
+```
+These tests use the [jest](https://facebook.github.io/jest/docs/getting-started.html) framework.
