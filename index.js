@@ -11,11 +11,11 @@ const usageSections = [
     {
         header: 'user-search',
         content: 'Search fields in structured user data for a term.'
-  },
+    },
     {
         header: 'Options',
         optionList: cmdSwitches
-  }
+    }
 ];
 
 

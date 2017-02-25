@@ -18,3 +18,4 @@
  1. Add command line support
  * Extend command line to support entity
  * Add unit test framework
+ * Add eslint config
