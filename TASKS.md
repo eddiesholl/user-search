@@ -1,7 +1,6 @@
 # Still to do
 
- * Add unit test framework
- * Adding streaming parser for users
+ 1. Adding streaming parser for users
  * Simple end to end with hardcoded user search
  * Adding streaming parser for orgs and tickets
  * Augment output with nested objects
@@ -16,5 +15,6 @@
 
 # Done
 
- * Add command line support
+ 1. Add command line support
  * Extend command line to support entity
+ * Add unit test framework
