@@ -1,6 +1,6 @@
 # Still to do
 
- 1. Adding streaming parser for orgs and tickets
+ 1. Convert to use a generator that yields results
  * Augment output with nested objects
  * Add support for empty search matches
  * Add support for alternate data paths
@@ -10,6 +10,7 @@
  * Review test coverage
  * Review performance on large data
  * Review error handling and robustness
+  * error handler for missing input file
  * Packaging for submission
 
 # Done
@@ -20,3 +21,4 @@
  * Add eslint config
  * Adding streaming parser for users
  * Simple end to end with hardcoded user search
+ * Adding streaming parser for orgs and tickets
