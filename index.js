@@ -28,11 +28,17 @@ if (options.help || !isValidOptions) {
     process.exit(1);
 } else {
     const searcher = require('./lib/searcher');
+    const StreamRenderer = require('./lib/stream-renderer');
+
     const dataSources = {
         user: 'users.json',
         ticket: 'tickets.json',
         org: 'organizations.json'
     };
 
-    searcher(dataSources, options.entity, options.field, options.term);
+    const resultStream = searcher(dataSources, options.entity, options.field, options.term);
+
+    if (resultStream) {
+        resultStream.pipe(new StreamRenderer());
+    }
 }

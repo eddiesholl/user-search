@@ -1,7 +1,6 @@
 # Still to do
 
- 1. Convert to use a generator that yields results
- * Augment output with nested objects
+ 1. Augment output with nested objects
  * Add support for empty search matches
  * Add support for alternate data paths
  * Add support for scanning booleans and array fields
@@ -22,3 +21,4 @@
  * Adding streaming parser for users
  * Simple end to end with hardcoded user search
  * Adding streaming parser for orgs and tickets
+ * Convert to use a generator that yields results - returns a stream instead
