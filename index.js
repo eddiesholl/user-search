@@ -31,12 +31,18 @@ if (options.help || !isValidOptions) {
     const StreamRenderer = require('./lib/stream-renderer');
 
     const dataSources = {
-        user: 'users.json',
-        ticket: 'tickets.json',
-        org: 'organizations.json'
+        user: 'data/users.json',
+        ticket: 'data/tickets.json',
+        org: 'data/organizations.json'
     };
 
-    const resultStream = searcher(dataSources, options.entity, options.field, options.term);
+    const fieldsToExpand = {
+        submitter: "user",
+        assignee: "user",
+        organization: "org"
+    }
+
+    const resultStream = searcher(dataSources, options.entity, options.field, options.term, fieldsToExpand);
 
     if (resultStream) {
         resultStream.pipe(new StreamRenderer());
