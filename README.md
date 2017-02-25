@@ -17,7 +17,9 @@ This takes care of installing all dependencies via the npm package manager.
 
 To actually run the tool, use a command like:
 ```
-node index.js --field user.description --term fred
+node index.js --entity user --field description --term fred
+node index.js -e user -f description -t fred
+
 ```
 
 You can get a list of all available switches with
@@ -27,14 +29,22 @@ node index.js -h
 
 ## Switches
 
-### field
+### --entity (-e)
 
-This switch is expecting an 'object notation' to specify the field you would like to search. Some examples are:
+The entity type you would like to search. Currently supported entities:
 
- * user.alias
- * ticket.subject
- * organization.domain_names
+ * user
+ * ticket
+ * org
 
-### term
+### --field (-f)
+
+The field on the specified entity to search in. For example:
+
+ * alias
+ * domain_names
+ * priority
+
+### --term (-t)
 
 The term to search for in the field.
