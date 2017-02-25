@@ -1,0 +1,18 @@
+{
+  "name": "user-search",
+  "version": "1.0.0",
+  "description": "simple command line utility for searching structured user data",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eddie Sholl",
+  "license": "ISC",
+  "dependencies": {
+    "command-line-args": "^4.0.1",
+    "command-line-usage": "^4.0.0"
+  }
+}
