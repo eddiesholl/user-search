@@ -20,7 +20,19 @@ const usageSections = [
 
 
 console.log('Running user-search with options: ' + JSON.stringify(options));
+const optionsCheck = require('./lib/options-check');
+const isValidOptions = optionsCheck(options);
 
-if (options.help) {
+if (options.help || !isValidOptions) {
     console.log(getUsage(usageSections));
+    process.exit(1);
+} else {
+    const searcher = require('./lib/searcher');
+    const dataSources = {
+        user: 'users.json',
+        ticket: 'tickets.json',
+        org: 'organizations.json'
+    };
+
+    searcher(dataSources, options.entity, options.field, options.term);
 }
