@@ -3,7 +3,10 @@
 const termFinder = require('../lib/term-finder');
 
 const hasNameFoo = {
-    name: 'foo'
+    name: 'foo',
+    emptyString: '',
+    emptyArray: [],
+    nullField: null
 };
 
 describe('findTermInFields', () => {
@@ -21,6 +24,21 @@ describe('findTermInField', () => {
 
     test('does not find bar in name', () => {
         const result = termFinder.findTermInField(hasNameFoo, 'name', 'bar')
+        expect(result).toBe(false);
+    });
+
+    test('can match an empty string field', () => {
+        const result = termFinder.findTermInField(hasNameFoo, 'emptyString', undefined)
+        expect(result).toBe(true);
+    });
+
+    test('can match an empty array field', () => {
+        const result = termFinder.findTermInField(hasNameFoo, 'emptyArray', undefined)
+        expect(result).toBe(true);
+    });
+
+    test('does not match a null field', () => {
+        const result = termFinder.findTermInField(hasNameFoo, 'nullField', undefined)
         expect(result).toBe(false);
     });
 });
