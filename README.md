@@ -72,6 +72,12 @@ Other available extension points:
 
 ## Test coverage and testability
 
+I have provided a basic level of test coverage across most of the logic in this app. The tests focus on the moving parts rather than validating the specific domain 'ie user objects'.
+
+There are also some end to end integration tests that make use sample data to run a full search.
+
+Apart from the integration tests, the tests don't require interacting with the real world. It is only in the outer layer of the app that we actually interact with the file stream. It is not entirely pure, but it is very close.
+
 ## Performance and large data sets
 
 ## Error handling and robustness
