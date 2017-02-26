@@ -47,7 +47,11 @@ The field on the specified entity to search in. For example:
 
 ### --term (-t)
 
-The term to search for in the field.
+The term to search for in the field. If this flag is omitted, a match is made if the field is empty (an empty string, or an empty array).
+
+### --data (-d)
+
+By default, the tool operates on the JSON files stored in the `data` folder. If you would like to search alternate data files, you can provide the custom path with this option. The directory should contain the 3 JSON files.
 
 # Tests
 
