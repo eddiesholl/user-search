@@ -6,7 +6,9 @@ const hasNameFoo = {
     name: 'foo',
     emptyString: '',
     emptyArray: [],
-    nullField: null
+    nullField: null,
+    arrayWithFoo: ['foo'],
+    arrayWithBar: ['bar']
 };
 
 describe('findTermInFields', () => {
@@ -41,4 +43,15 @@ describe('findTermInField', () => {
         const result = termFinder.findTermInField(hasNameFoo, 'nullField', undefined)
         expect(result).toBe(false);
     });
+
+    test('can match on array field items', () => {
+        const result = termFinder.findTermInField(hasNameFoo, 'arrayWithFoo', 'foo')
+        expect(result).toBe(true);
+    });
+
+    test('does not match on array field items', () => {
+        const result = termFinder.findTermInField(hasNameFoo, 'arrayWithBar', 'foo')
+        expect(result).toBe(false);
+    });
+
 });
