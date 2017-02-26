@@ -1,7 +1,6 @@
 # Still to do
 
- 1. Add support for scanning booleans and array fields
- * Review extensibility
+ 1. Review extensibility
  * Review simplicity
  * Review test coverage
  * Review performance on large data
@@ -22,3 +21,4 @@
  * Augment output with nested objects
  * Add support for empty search matches
  * Add support for alternate data paths
+ * Add support for scanning booleans and array fields - also added numbers

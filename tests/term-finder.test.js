@@ -10,7 +10,8 @@ const hasNameFoo = {
     arrayWithFoo: ['foo'],
     arrayWithBar: ['bar'],
     trueField: true,
-    falseField: false
+    falseField: false,
+    numberField: 1
 };
 
 describe('findTermInFields', () => {
@@ -63,6 +64,16 @@ describe('findTermInField', () => {
 
     test('can not match on boolean field items', () => {
         const result = termFinder.findTermInField(hasNameFoo, 'falseField', 'true')
+        expect(result).toBe(false);
+    });
+
+    test('can match on number field items', () => {
+        const result = termFinder.findTermInField(hasNameFoo, 'numberField', '1')
+        expect(result).toBe(true);
+    });
+
+    test('can not match on number field items', () => {
+        const result = termFinder.findTermInField(hasNameFoo, 'numberField', '2')
         expect(result).toBe(false);
     });
 
