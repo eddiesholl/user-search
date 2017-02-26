@@ -1,7 +1,8 @@
 const cmdSwitches = [
     { name: 'entity', alias: 'e', type: String, defaultValue: 'user', description: "The name of the entity ('user', 'ticket' or 'org')" },
     { name: 'field', alias: 'f', type: String, defaultValue: 'name', multiple: true, description: "The name of the field on the entity to search" },
-    { name: 'term', alias: 't', type: String, description: 'The term to search for' },
+    { name: 'term', alias: 't', type: String, description: 'The term to search for. Will search for empty or blank if not supplied' },
+    { name: 'data', alias: 'd', type: String, defaultValue: 'data', description: 'Directory path containing data files' },
     { name: 'verbose', alias: 'v', type: Boolean },
     { name: 'help', alias: 'h', type: Boolean }
 ];
@@ -31,9 +32,9 @@ if (options.help || !isValidOptions) {
     const StreamRenderer = require('./lib/stream-renderer');
 
     const dataSources = {
-        user: 'data/users.json',
-        ticket: 'data/tickets.json',
-        org: 'data/organizations.json'
+        user: `${options.data}/users.json`,
+        ticket: `${options.data}/tickets.json`,
+        org: `${options.data}/organizations.json`
     };
 
     const fieldsToExpand = {

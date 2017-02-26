@@ -1,7 +1,6 @@
 # Still to do
 
- 1. Add support for alternate data paths
- * Add support for scanning booleans and array fields
+ 1. Add support for scanning booleans and array fields
  * Review extensibility
  * Review simplicity
  * Review test coverage
@@ -22,3 +21,4 @@
  * Convert to use a generator that yields results - returns a stream instead
  * Augment output with nested objects
  * Add support for empty search matches
+ * Add support for alternate data paths
