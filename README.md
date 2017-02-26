@@ -100,3 +100,11 @@ To help scale the tool to larger data sets, here are some proposals:
 * A small improvement to this is to load all the ids of nested objects first. This means re-scanning the file can be avoided ifthe nested object does not exist inthe file.
 
 ## Error handling and robustness
+
+There is reasonable checking around failure cases and bad data. Simple errors like input files missing, are having invalid JSON content, provide clear fedback to the user.
+
+The critical entry points for user data (like which field to search on) make sure that most possible bad states can't flow into the execution of the app. With more time, it would be useful to go through and provide more type checking and assertions on function parameters. This might be using something like typescript or tcomb, or also just plain old `assert` calls.
+
+The command line interface is fairly strict about what it will allow through, so it's hard to provide bad options to the engine.
+
+The async streams make it a little harder to stop on errors, but the main error hooks are in place, to prevent operation on bad states.

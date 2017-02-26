@@ -37,15 +37,19 @@ if (options.help || !isValidOptions) {
         org: `${options.data}/organizations.json`
     };
 
-    const fieldsToExpand = {
-        submitter: "user",
-        assignee: "user",
-        organization: "org"
-    }
+    try {
+        const resultStream = searcher(dataSources, options.entity, options.field, options.term);
 
-    const resultStream = searcher(dataSources, options.entity, options.field, options.term, fieldsToExpand);
-
-    if (resultStream) {
-        resultStream.pipe(new StreamRenderer());
+        if (resultStream) {
+            resultStream.pipe(new StreamRenderer());
+        }
+    } catch (e) {
+        console.error(`Failed to execute search: ` + e)
     }
 }
+
+process.on('uncaughtException', e => {
+    console.error('An unhandled exception has occurred: ' + e);
+    console.log(e.stack)
+    process.exit(1);
+})

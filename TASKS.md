@@ -1,7 +1,5 @@
 # Still to do
 
- * Review error handling and robustness
-  * error handler for missing input file
  * Packaging for submission
 
 # Done
@@ -22,3 +20,5 @@
  * Review test coverage
  * Review simplicity
  * Review performance on large data
+ * Review error handling and robustness
+  * error handler for missing input file
