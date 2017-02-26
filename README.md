@@ -1,8 +1,8 @@
 # Introduction
 
-This is a simple command line utility for searching well-formed and structured user data.
+This is a simple command line utility for searching well-formed and structured user data. The requirements for the app are described in the docs folder.
 
-# Requirements
+# Dependencies
 
 The app uses node and the npm ecosystem. To use it, first you will need a a recent version of [node and npm](https://docs.npmjs.com/getting-started/installing-node) installed.
 
