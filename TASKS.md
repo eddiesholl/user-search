@@ -1,6 +1,5 @@
 # Still to do
 
- * Review simplicity
  * Review performance on large data
  * Review error handling and robustness
   * error handler for missing input file
@@ -22,3 +21,4 @@
  * Add support for scanning booleans and array fields - also added numbers
  * Review extensibility
  * Review test coverage
+ * Review simplicity

@@ -78,6 +78,12 @@ There are also some end to end integration tests that make use sample data to ru
 
 Apart from the integration tests, the tests don't require interacting with the real world. It is only in the outer layer of the app that we actually interact with the file stream. It is not entirely pure, but it is very close.
 
+## Simplicity
+
+The use of native node.js streams and pipes works quite well in this solution. The solution is fairly compact, with good seperation of concerns. Each aspect of the solution can be broken into a self-contained chunk. The streams snap together well.
+
+One of the challenges with the solution is keeping the operation async. One of the more complex pieces is the lazy loading of objects for nested object detection.
+
 ## Performance and large data sets
 
 ## Error handling and robustness
