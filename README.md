@@ -86,4 +86,17 @@ One of the challenges with the solution is keeping the operation async. One of t
 
 ## Performance and large data sets
 
+The performance tradeoffs made in the design of the app are based around the proposed data sets size of '10000+'. This scale is non-trivial, but is still not a crazy amount to be holding in memory, for example. Effort has been made to avoid too much impact from the size of the data, for example the [JSONStream](https://www.npmjs.com/package/json-stream) library is used to avoid loading the entire file at once. Only single entities are considered at a time for the initial term matching. But the nested object handling does load all objects (if and when required).
+
+The set of nested objects is lazy loaded, so this data is only pulled in when the first nested object lookup is requested by a search match.
+
+There is a known waste of memory storage in the nested object filters. They currently only process a single field, so there are actually 2 'user' nested object filters. These will hold duplicate user records. This would be an obvious future improvement.
+
+The search matches are currently processed as a stream, and flushed to stdout as soon as they arrive. They are not held in memory, so they don't accumulate in memory.
+
+To help scale the tool to larger data sets, here are some proposals:
+
+* Don't pull nested objects for consideration into memory. Scan the input files containing nested objects each time a possible nested object replacementt is found. This will be slower, but have a smaller memory footprint.
+* A small improvement to this is to load all the ids of nested objects first. This means re-scanning the file can be avoided ifthe nested object does not exist inthe file.
+
 ## Error handling and robustness
